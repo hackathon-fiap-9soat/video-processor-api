@@ -1,0 +1,17 @@
+br\com\fiap\hackathon\usecase\DownloadVideoUseCase.class
+br\com\fiap\hackathon\adapter\controller\UploadVideoController.class
+br\com\fiap\hackathon\domain\repository\VideoRepository.class
+br\com\fiap\hackathon\adapter\controller\QueueController.class
+br\com\fiap\hackathon\adapter\presenter\dto\upload\UploadVideoResponse.class
+br\com\fiap\hackathon\usecase\ListProcessedVideosUseCase.class
+br\com\fiap\hackathon\adapter\controller\HistoryController.class
+br\com\fiap\hackathon\infrastructure\database\repository\VideoRepositoryImpl.class
+br\com\fiap\hackathon\usecase\UploadVideoUseCase.class
+br\com\fiap\hackathon\VideoProcessorApplication.class
+br\com\fiap\hackathon\infrastructure\aws\service\SimpleStorageService.class
+br\com\fiap\hackathon\adapter\presenter\dto\upload\UploadVideoRequest.class
+br\com\fiap\hackathon\domain\service\VideoValidationService.class
+br\com\fiap\hackathon\infrastructure\aws\service\SQSService.class
+br\com\fiap\hackathon\usecase\ListQueueMessagesUseCase.class
+br\com\fiap\hackathon\adapter\controller\DownloadVideoController.class
+br\com\fiap\hackathon\domain\entity\VideoEntity.class

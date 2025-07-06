@@ -1,0 +1,17 @@
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\adapter\controller\DownloadVideoController.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\adapter\controller\HistoryController.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\adapter\controller\QueueController.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\adapter\controller\UploadVideoController.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\adapter\presenter\dto\upload\UploadVideoRequest.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\adapter\presenter\dto\upload\UploadVideoResponse.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\domain\entity\VideoEntity.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\domain\repository\VideoRepository.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\domain\service\VideoValidationService.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\infrastructure\aws\service\SimpleStorageService.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\infrastructure\aws\service\SQSService.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\infrastructure\database\repository\VideoRepositoryImpl.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\usecase\DownloadVideoUseCase.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\usecase\ListProcessedVideosUseCase.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\usecase\ListQueueMessagesUseCase.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\usecase\UploadVideoUseCase.java
+C:\Users\Samuel\Desktop\Study\FIAP\Challenges\Fase 5\video-processor-api\src\main\java\br\com\fiap\hackathon\VideoProcessorApplication.java
