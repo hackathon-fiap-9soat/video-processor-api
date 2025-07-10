@@ -1,6 +1,9 @@
 server:
   servlet:
     context-path: /video-processor-api
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
 
 spring:
   application:
