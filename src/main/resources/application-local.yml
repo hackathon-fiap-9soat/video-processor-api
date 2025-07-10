@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
     database-platform: org.hibernate.dialect.H2Dialect
     properties:
@@ -22,11 +22,9 @@ spring:
 aws:
   region: us-east-1
   s3:
-    bucket: local-bucket
+    bucket-name: videos-hackathon
   sqs:
-    queue-name: local-queue
-  sns:
-    topic: local-topic
+    queue-url: https://sqs.us-east-1.amazonaws.com/395368505712/video-processing-queue
 
 logging:
   level:

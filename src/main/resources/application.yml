@@ -1,0 +1,33 @@
+server:
+  servlet:
+    context-path: /video-processor-api
+
+spring:
+  application:
+    name: video-processor-api
+  datasource:
+    url: ${VIDEOS_JDBC_URL}
+    username: ${VIDEOS_DB_USER}
+    password: ${VIDEOS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+aws:
+  region: us-east-1
+  s3:
+    bucket-name: ${BUCKET_NAME}
+  sqs:
+    queue-url: ${SQS_QUEUE_URL}
+
+logging:
+  level:
+    root: INFO
+    br.com.fiap.hackathon: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

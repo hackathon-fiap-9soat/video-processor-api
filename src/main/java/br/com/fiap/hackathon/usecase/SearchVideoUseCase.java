@@ -1,4 +1,4 @@
 package br.com.fiap.hackathon.usecase;
 
-public class ListProcessedVideosUseCase {
+public class SearchVideoUseCase {
 }
