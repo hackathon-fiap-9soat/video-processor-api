@@ -1,20 +1,32 @@
 package br.com.fiap.hackathon.adapter.controller;
 
-import br.com.fiap.hackathon.adapter.presenter.dto.search.SearchVideoRequest;
 import br.com.fiap.hackathon.adapter.presenter.dto.search.SearchVideoResponse;
+import br.com.fiap.hackathon.domain.entity.VideoFrameEntity;
+import br.com.fiap.hackathon.domain.service.enums.ProcessorStatus;
+import br.com.fiap.hackathon.usecase.SearchVideoUseCase;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/search")
 @RequiredArgsConstructor
 public class SearchVideoController {
 
-    @PostMapping("/search")
-    public SearchVideoResponse searchVideo(@RequestBody SearchVideoRequest searchVideoRequest) {
-        return  null;
+    private final SearchVideoUseCase service;
+
+    @GetMapping("/by-email")
+    public ResponseEntity<List<SearchVideoResponse>> searchVideoByEmail(@RequestParam String email) {
+        List<SearchVideoResponse> response = service.searchByEmail(email);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/by-status/{status}")
+    public ResponseEntity<List<SearchVideoResponse>> searchVideoByProcessStatus(@PathVariable ProcessorStatus status) {
+        List<SearchVideoResponse> response = service.searchByStatus(status);
+        return ResponseEntity.ok(response);
     }
 }
