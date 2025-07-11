@@ -1,6 +1,6 @@
 ### 🎥 Video Processor API
 
-API responsável pelo upload, consulta e histórico de vídeos processados no sistema. 
+API responsável por permitir upload, consulta e histórico de vídeos processados no sistema. 
 Desenvolvida como parte de um ecossistema maior de processamento de vídeos usando serviços gerenciados da AWS.
 
 ### 📌 Objetivo
