@@ -25,7 +25,7 @@ public class UploadVideoUseCase {
             VideoMessageDTO request = new VideoMessageDTO(email, videoId);
             simpleQueueService.sendMessage(request);
         } catch (Exception e) {
-            log.error("Erro ao fazer envio do video: {}", e.getMessage());
+            log.error("Erro ao fazer envio do video: "+ e.getMessage(), e);
             throw new RuntimeException("Erro ao fazer envio do video: "+e.getMessage(), e);
         }
     }
