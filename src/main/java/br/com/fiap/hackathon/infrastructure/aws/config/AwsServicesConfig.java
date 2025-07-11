@@ -13,19 +13,15 @@ public class AwsServicesConfig {
 
     @Bean
     public SqsClient sqsClient() {
-        AwsCredentialsProvider credentials = EnvironmentVariableCredentialsProvider.create();
         return SqsClient.builder()
                 .region(Region.US_EAST_1)
-                .credentialsProvider(credentials)
                 .build();
     }
 
     @Bean
     public S3Client s3Client() {
-        AwsCredentialsProvider credentials = EnvironmentVariableCredentialsProvider.create();
         return S3Client.builder()
                 .region(Region.US_EAST_1)
-                .credentialsProvider(credentials)
                 .build();
     }
 }
