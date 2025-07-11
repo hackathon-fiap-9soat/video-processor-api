@@ -32,13 +32,19 @@ public class UploadVideoController {
 
         try {
             String id = UUID.randomUUID().toString();
-            Path tempFile = Files.createTempFile(id, ".mp4");
+            Path tempDir = Files.createTempDirectory("video-upload-");
+            Path tempFile = Files.createTempFile(tempDir, id, ".mp4");
+
             videoFile.transferTo(tempFile.toFile());
             uploadVideoUseCase.uploadVideo(id, tempFile, email);
+
             Files.deleteIfExists(tempFile);
+            Files.deleteIfExists(tempDir);
+
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro no upload do video" + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Ocorreu um erro no upload do video: " + e.getMessage());
         }
     }
 
