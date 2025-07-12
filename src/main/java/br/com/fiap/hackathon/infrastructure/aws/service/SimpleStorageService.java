@@ -9,8 +9,6 @@ import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 @Service
 @RequiredArgsConstructor
@@ -22,21 +20,14 @@ public class SimpleStorageService {
     @Value("${aws.s3.bucket-name}")
     public String bucketName;
 
-    public void upload(String videoId, Path videoPath) throws IOException {
-        try {
-            byte[] bytes = Files.readAllBytes(videoPath);
+    public void upload(String videoId, byte[] bytes) throws IOException {
+        PutObjectRequest request = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(videoId)
+                .contentType("video/mp4")
+                .build();
 
-            PutObjectRequest request = PutObjectRequest.builder()
-                    .bucket(bucketName)
-                    .key(videoId)
-                    .contentType("video/mp4")
-                    .build();
-
-            s3Client.putObject(request, RequestBody.fromBytes(bytes));
-        } catch (IOException e) {
-            log.error("Erro ao fazer upload do vídeo: {}", e.getMessage());
-            throw new RuntimeException("Erro ao fazer upload do vídeo", e);
-        }
+        s3Client.putObject(request, RequestBody.fromBytes(bytes));
     }
 
 }

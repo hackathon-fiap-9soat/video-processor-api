@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.attribute.PosixFilePermissions;
 import java.util.UUID;
 
 @RestController
@@ -33,20 +32,10 @@ public class UploadVideoController {
 
         try {
             String id = UUID.randomUUID().toString();
-            Path tempDir = Files.createTempDirectory("video-upload-",
-                    PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString("rwx------")));
-            Path tempFile = Files.createTempFile(tempDir, id, ".mp4");
-
-            videoFile.transferTo(tempFile.toFile());
-            uploadVideoUseCase.uploadVideo(id, tempFile, email);
-
-            Files.deleteIfExists(tempFile);
-            Files.deleteIfExists(tempDir);
-
+            uploadVideoUseCase.uploadVideo(id, videoFile.getBytes(), email);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Ocorreu um erro no upload do video: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro no upload do video" + e.getMessage());
         }
     }
 

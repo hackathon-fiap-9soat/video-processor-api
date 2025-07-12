@@ -36,10 +36,9 @@ class SimpleStorageServiceTest {
     @Test
     @DisplayName("Deve fazer upload de vídeo com sucesso")
     void deveFazerUploadComSucesso() throws IOException {
-        Path tempFile = Files.createTempFile("video", ".mp4");
-        Files.write(tempFile, "dummy-content".getBytes());
+        byte[] bytes = "teste".getBytes();
 
-        simpleStorageService.upload("video123", tempFile);
+        simpleStorageService.upload("video123", bytes);
 
         verify(s3Client).putObject(argThat((PutObjectRequest req) ->
                 req.bucket().equals("test-bucket") &&
@@ -47,18 +46,6 @@ class SimpleStorageServiceTest {
                         req.contentType().equals("video/mp4")
         ), any(RequestBody.class));
 
-        Files.deleteIfExists(tempFile);
     }
 
-    @Test
-    @DisplayName("Deve lançar exceção ao falhar leitura do arquivo")
-    void deveLancarErroAoFalharLeituraArquivo() {
-        Path invalidPath = Path.of("/path/invalido/video.mp4");
-
-        RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                simpleStorageService.upload("video123", invalidPath)
-        );
-
-        assertEquals("Erro ao fazer upload do vídeo", exception.getMessage());
-    }
 }

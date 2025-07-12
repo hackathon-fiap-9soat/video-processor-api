@@ -17,9 +17,9 @@ public class UploadVideoUseCase {
     private final SimpleStorageService simpleStorageService;
     private final SimpleQueueService simpleQueueService;
 
-    public void uploadVideo(String videoId, Path videoPath, String email) {
+    public void uploadVideo(String videoId, byte[] videoBytes, String email) {
         try {
-            simpleStorageService.upload(videoId, videoPath);
+            simpleStorageService.upload(videoId, videoBytes);
             log.info("Upload realizado com sucesso: {}", videoId);
 
             VideoMessageDTO request = new VideoMessageDTO(email, videoId);
